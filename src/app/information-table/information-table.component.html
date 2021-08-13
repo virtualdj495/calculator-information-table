@@ -1,0 +1,60 @@
+<div>
+  <h2>List of people</h2>
+      <ul>
+          <li *ngFor="let person of people" (click)="addPeopleToTable()" >
+              {{person.nume}} {{person.prenume}}
+           </li>
+      </ul>
+      <button (click)="addPeopleToTable()" >Add a random person</button>
+  <div>
+      <label for="sort">Sort by: </label>
+      <select id="sort">
+          <option (click)="sortPeople(5)" >Unsort</option>
+          <option (click)="sortPeople(1)" >Nume</option>
+          <option (click)="sortPeople(2)" >Prenume</option>
+          <option (click)="sortPeople(3)" >Varsta</option>
+          <option (click)="sortPeople(4)" >Ocupatie</option>
+      </select>
+  </div>
+  <table style="width: 100%;">
+      <tr>
+          <th>Nume </th>
+          <th>Prenume </th>
+          <th>Varsta </th>
+          <th>Profesie </th>
+          <th>Stergere </th>
+      </tr>
+      <tr>
+          <td> </td>
+          <td> </td>
+          <td>
+              <br>
+              <label for="varstaMin">Varsta minima: </label>
+              <input type="number" id="varstaMin" [(ngModel)]="varstaMin" name="varstaMin" >
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <label for="varstaMax">Varsta maxima: </label>
+              <input type="number" [(ngModel)]="varstaMax" name="varstaMax">
+              <br>
+              <button (click)="filter()">Apply</button>
+          </td>
+          <td>
+              <select [(ngModel)]="controlOcupatie">
+                  <option (click)="filter()">Unsort</option>
+                  <option *ngFor="let ocupatie of listaOcupatie" (click)="filter()" >
+                      {{ocupatie}}
+                  </option>
+              </select>
+          </td>
+          <th>
+              <button (click)="deleteFilters()" >Sterge filtre</button>
+          </th>
+      </tr>
+      <tr *ngFor="let person of selectedPeople">
+          <td>{{person.nume}} </td>
+          <td>{{person.prenume}} </td>
+          <td>{{person.varsta}} </td>
+          <td>{{person.ocupatie}} </td>
+          <td><button (click)="deletePerson(person)" >X</button></td>
+      </tr>
+  </table>
+</div>

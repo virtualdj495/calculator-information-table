@@ -1,0 +1,26 @@
+<div>
+  <span *ngIf="result" >{{result}}</span><br>
+  <span *ngIf="currentNumber">{{currentNumber}}</span>
+  <div>
+    <button (click)="startOperations('del')">C</button>
+      <button (click)="createNumber('CE')">CE</button>
+        <button (click)="createNumber('X')">X</button>
+          <button (click)="startOperations('equal')" >=</button><br>
+    <button (click)="createNumber('9')">9</button>
+      <button (click)="createNumber('8')">8</button>
+        <button (click)="createNumber('7')">7</button>
+          <button (click)="startOperations('div')">/</button><br>
+    <button (click)="createNumber('6')">6</button>
+      <button (click)="createNumber('5')">5</button>
+        <button (click)="createNumber('4')">4</button>
+          <button (click)="startOperations('mul')">*</button><br>
+    <button (click)="createNumber('3')">3</button>
+        <button (click)="createNumber('2')">2</button>
+          <button (click)="createNumber('1')">1</button>
+            <button (click)="startOperations('sub')">-</button><br>
+    <button (click)="createNumber('sign')">+/-</button>
+          <button (click)="createNumber('0')">0</button>
+            <button (click)="createNumber('.')">.</button>
+              <button (click)="startOperations('add')" >+</button><br>
+  </div>
+</div>
